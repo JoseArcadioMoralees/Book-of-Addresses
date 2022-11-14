@@ -6,10 +6,14 @@ using namespace std;
 
 int main ()
 {
-    KsiazkaAdresowa ksiazkaAdresowa;  
+    KsiazkaAdresowa ksiazkaAdresowa; 
+    // ksiazkaAdresowa.wczytajUzytkownikowZPliku();  
+    // ksiazkaAdresowa.rejestracjaUzytkownika(); 
+    // ksiazkaAdresowa.rejestracjaUzytkownika();
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow(); 
     ksiazkaAdresowa.rejestracjaUzytkownika(); 
     ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow(); 
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 
     return 0; 
 }
