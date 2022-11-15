@@ -10,10 +10,12 @@ int main ()
     // ksiazkaAdresowa.wczytajUzytkownikowZPliku();  
     // ksiazkaAdresowa.rejestracjaUzytkownika(); 
     // ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow(); 
-    ksiazkaAdresowa.rejestracjaUzytkownika(); 
-    ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    // ksiazkaAdresowa.wypiszWszystkichUzytkownikow(); 
+    // ksiazkaAdresowa.rejestracjaUzytkownika(); 
+    // ksiazkaAdresowa.rejestracjaUzytkownika();
+    // ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.logowanieUzytkownika(); 
+    ksiazkaAdresowa.zmianaHasla(); 
 
     return 0; 
 }

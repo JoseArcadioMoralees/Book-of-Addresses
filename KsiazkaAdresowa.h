@@ -12,6 +12,9 @@ class KsiazkaAdresowa
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {uzytkownikMenedzer.wczytajUzytkownikowZPliku();}; 
     void rejestracjaUzytkownika(); 
     void wypiszWszystkichUzytkownikow(); 
+    void logowanieUzytkownika();
+    void zmianaHasla();
+
 }; 
 
 #endif

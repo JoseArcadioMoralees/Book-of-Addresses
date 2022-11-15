@@ -98,3 +98,8 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     }
     return uzytkownik;
 }
+
+string PlikZUzytkownikami::pobierzNazwaPlikuZUzytkownikami()
+{
+    return nazwaPlikuZUzytkownikami; 
+}
