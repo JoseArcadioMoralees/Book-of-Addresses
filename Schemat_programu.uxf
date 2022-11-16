@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>20</y>
+      <w>300</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>KsiążkaAdresowa
+--
+-UzytkownikMenedzer: uzytkownikMenedzer
+--
++KsiazkaAdresowa() : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {uzytkownikMenedzer.wczytajUzytkownikowZPliku();} 
++rejestracjaUzytkownika(): void  
++wypiszWszystkichUzytkownikow(): void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>160</y>
+      <w>310</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
++idZalogowanegoUzytkownika: int
++uzytkownicy: vector &lt;Uzytkownik&gt;
++plikZUzytkownikami: PlikZUzytkownikami 
+--
+-pobierzIdNowegoUzytkownika(): int 
+-czyIstniejeLogin(string login): bool
+-podajDaneNowegoUzytkownika(): Uzytkownik
++UzytkownikMenedzer() : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {}
++rejestracjaUzytkownika(): void 
++wypiszWszystkichUzytkownikow(): void 
++wczytajUzytkownikowZPliku(): void 
++logowanieUzytkownika(): int
++zmianaHaslaZalogowanegoUzytkownika(): void </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>20</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+-
+-id: int 
+-login: string 
+-haslo: string </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>160</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+-
+-nazwaPlikuZUzytkownikami: const string 
+-
+-czyPlikJestPusty(): bool 
+-zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): string 
+-pobierzDaneUzytkownika(): Uzytkownik 
++PlikZUzytkownikami() : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){}; 
++dopiszUzytkownikaDoPliku(): void 
++wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>160</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+-
+-
++konwerjsaIntNaString(): static string </panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -70,5 +70,98 @@ void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
+void UzytkownikMenedzer::logowanieUzytkownika()
+{
+    string login = "", haslo = "";
 
+    cout << endl << "Podaj login: ";
+    login = MetodyPomocnicze::wczytajLinie();
 
+    vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+    while (itr != uzytkownicy.end())
+    {
+        if (itr -> pobierzLogin() == login)
+        {
+            for (int iloscProb = 3; iloscProb > 0; iloscProb--)
+            {
+                cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+                haslo = MetodyPomocnicze::wczytajLinie();
+
+                if (itr -> pobierzHaslo() == haslo)
+                {
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    idZalogowanegoUzytkownika = itr -> pobierzID();
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return;
+}
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
+
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    {
+        if (itr -> pobierzID() == idZalogowanegoUzytkownika)
+        {
+            itr -> ustawHAslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    zapiszWszystkichUzytkownikowDoPliku();
+}
+
+void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
+{
+    fstream plikTekstowy;
+    string liniaZDanymiUzytkownika = "";
+    vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
+    string nazwaPlikuZUzytkownikami = plikZUzytkownikami.pobierzNazwaPlikuZUzytkownikami();
+
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
+
+    if (plikTekstowy.good() == true)
+    {
+        for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+        {
+            liniaZDanymiUzytkownika = plikZUzytkownikami.zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(*itr);
+
+            if (itr == itrKoniec)
+            {
+               plikTekstowy << liniaZDanymiUzytkownika;
+            }
+            else
+            {
+                plikTekstowy << liniaZDanymiUzytkownika << endl;
+            }
+            liniaZDanymiUzytkownika = "";
+        }
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
+    }
+    plikTekstowy.close();
+}
+
+int UzytkownikMenedzer::getIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika; 
+}
+
+void UzytkownikMenedzer::setIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA)
+{
+    idZalogowanegoUzytkownika = IDZALOGOWANEGOUZYTKOWNIKA; 
+}
