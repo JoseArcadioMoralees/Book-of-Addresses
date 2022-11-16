@@ -20,3 +20,13 @@ void KsiazkaAdresowa::zmianaHasla()
 {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(); 
 }
+
+int KsiazkaAdresowa::getIdZalogowanegoUzytkownika()
+{
+    return uzytkownikMenedzer.getIdZalogowanegoUzytkownika();
+}
+
+void KsiazkaAdresowa::setIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA)
+{
+    uzytkownikMenedzer.setIdZalogowanegoUzytkownika(IDZALOGOWANEGOUZYTKOWNIKA);
+}

@@ -156,3 +156,12 @@ void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
     plikTekstowy.close();
 }
 
+int UzytkownikMenedzer::getIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika; 
+}
+
+void UzytkownikMenedzer::setIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA)
+{
+    idZalogowanegoUzytkownika = IDZALOGOWANEGOUZYTKOWNIKA; 
+}

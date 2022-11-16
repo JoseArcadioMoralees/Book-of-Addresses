@@ -14,6 +14,8 @@ class KsiazkaAdresowa
     void wypiszWszystkichUzytkownikow(); 
     void logowanieUzytkownika();
     void zmianaHasla();
+    int getIdZalogowanegoUzytkownika(); 
+    void setIdZalogowanegoUzytkownika(int);
 
 }; 
 

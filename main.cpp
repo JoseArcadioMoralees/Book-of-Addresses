@@ -7,15 +7,46 @@ using namespace std;
 int main ()
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt"); 
-    // ksiazkaAdresowa.wczytajUzytkownikowZPliku();  
-    // ksiazkaAdresowa.rejestracjaUzytkownika(); 
-    // ksiazkaAdresowa.rejestracjaUzytkownika();
-    // ksiazkaAdresowa.wypiszWszystkichUzytkownikow(); 
-    // ksiazkaAdresowa.rejestracjaUzytkownika(); 
-    // ksiazkaAdresowa.rejestracjaUzytkownika();
-    // ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    ksiazkaAdresowa.logowanieUzytkownika(); 
-    ksiazkaAdresowa.zmianaHasla(); 
+
+    while (true)
+    {
+        char wybor; 
+        if (ksiazkaAdresowa.getIdZalogowanegoUzytkownika() == 0)
+        {
+            wybor = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
+
+            switch (wybor)
+            {
+            case '1':
+                ksiazkaAdresowa.rejestracjaUzytkownika();
+                break;
+            case '2':
+                ksiazkaAdresowa.logowanieUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+        else
+        {
+            wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+
+            switch (wybor)
+            {
+            case '7':
+                ksiazkaAdresowa.zmianaHasla();
+                break;
+            case '8':
+                ksiazkaAdresowa.setIdZalogowanegoUzytkownika(0);
+                break;
+            }
+        }
+    }
 
     return 0; 
 }
