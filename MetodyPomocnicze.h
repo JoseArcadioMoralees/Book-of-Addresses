@@ -10,6 +10,13 @@ class MetodyPomocnicze
     public: 
     static string konwerjsaIntNaString(int liczba);
     static string wczytajLinie(); 
+    static char wybierzOpcjeZMenuGlownego(); 
+    static char wczytajZnak();
+    static char wybierzOpcjeZMenuUzytkownika(); 
+    static int konwersjaStringNaInt(string liczba); 
+    static string pobierzLiczbe(string tekst, int pozycjaZnaku); 
 };
+
+
 
 #endif
