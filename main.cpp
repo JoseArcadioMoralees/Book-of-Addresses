@@ -1,10 +1,10 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
-
+#include "PlikZAdresatami.h"
 
 using namespace std;
 
-int main ()
+int main () 
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 
@@ -53,6 +53,5 @@ int main ()
             }
         }
     }
-
     return 0; 
 }

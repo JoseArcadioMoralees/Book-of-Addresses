@@ -16,18 +16,16 @@ class AdresatMenedzer
     PlikZAdresatami plikZAdresatami; 
     vector <Adresat> adresaci;
     int idZalogowanegoUzytkownika; 
-    bool czyAbyPlikJestPusty(fstream &plikTekstowy);
+    int idOstatniegoAdresata;
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);  
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     void wyswietlDaneAdresata(Adresat adresat); 
 
-    public: 
-    int idOstatniegoAdresata;
+public: 
     AdresatMenedzer(); 
-    void dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata); 
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata); 
-    void dopiszAdresataDoPliku(Adresat adresat); 
-    void wyswietlWszystkichAdresatow(vector <Adresat> &adresaci); 
+    
+    void dodajAdresata(int idZalogowanegoUzytkownika); 
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);  
+    void wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika); 
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 };
 

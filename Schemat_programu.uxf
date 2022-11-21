@@ -1,53 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
+  <help_text/>
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>20</y>
+      <x>10</x>
+      <y>0</y>
       <w>300</w>
-      <h>120</h>
+      <h>250</h>
     </coordinates>
     <panel_attributes>KsiążkaAdresowa
 --
 -UzytkownikMenedzer: uzytkownikMenedzer
+-AdresatMenedzer adresatMenedzer
+-vector &lt;Adresat&gt; adresaci
+-idZalogowanegoUzytkownika = getIdZalogowanegoUzytkownika(): int
 --
 +KsiazkaAdresowa() : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {uzytkownikMenedzer.wczytajUzytkownikowZPliku();} 
 +rejestracjaUzytkownika(): void  
-+wypiszWszystkichUzytkownikow(): void </panel_attributes>
++wypiszWszystkichUzytkownikow(): void
++logowanieUzytkownika(): void
++zmianaHasla(): void
++getIdZalogowanegoUzytkownika(): int
++setIdZalogowanegoUzytkownika(): void
++dodajAdresata(): void
++wyswietlWszystkichAdresatow(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>160</y>
-      <w>310</w>
-      <h>190</h>
+      <x>0</x>
+      <y>300</y>
+      <w>390</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>UzytkownikMenedzer
 --
-+idZalogowanegoUzytkownika: int
-+uzytkownicy: vector &lt;Uzytkownik&gt;
-+plikZUzytkownikami: PlikZUzytkownikami 
+-idZalogowanegoUzytkownika: int
+-uzytkownicy: vector &lt;Uzytkownik&gt; 
+-plikZUzytkownikami: PlikZUzytkownikami 
 --
+-podajDaneNowegoUzytkownika(): Uzytkownik 
 -pobierzIdNowegoUzytkownika(): int 
--czyIstniejeLogin(string login): bool
--podajDaneNowegoUzytkownika(): Uzytkownik
-+UzytkownikMenedzer() : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {}
+-czyIstniejeLogin(string login): bool 
++UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami)
 +rejestracjaUzytkownika(): void 
 +wypiszWszystkichUzytkownikow(): void 
 +wczytajUzytkownikowZPliku(): void 
-+logowanieUzytkownika(): int
-+zmianaHaslaZalogowanegoUzytkownika(): void </panel_attributes>
++logowanieUzytkownika(): void 
++zmianaHaslaZalogowanegoUzytkownika(): void 
++zapiszWszystkichUzytkownikowDoPliku(): void  
++getIdZalogowanegoUzytkownika(): int 
++setIdZalogowanegoUzytkownika(int): void </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>20</y>
+      <x>410</x>
+      <y>0</y>
       <w>130</w>
       <h>90</h>
     </coordinates>
@@ -61,10 +74,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>160</y>
-      <w>230</w>
-      <h>190</h>
+      <x>0</x>
+      <y>600</y>
+      <w>390</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 -
@@ -75,21 +88,94 @@
 -pobierzDaneUzytkownika(): Uzytkownik 
 +PlikZUzytkownikami() : nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){}; 
 +dopiszUzytkownikaDoPliku(): void 
-+wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt; </panel_attributes>
++wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt; 
++pobierzNazwaPlikuZUzytkownikami(): string </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>160</y>
+      <x>1470</x>
+      <y>320</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 -
 -
-+konwerjsaIntNaString(): static string </panel_attributes>
++konwerjsaIntNaString(): static string 
+string wczytajLinie(): static 
+wybierzOpcjeZMenuGlownego(): static char 
+wczytajZnak(): static char 
+wybierzOpcjeZMenuUzytkownika(): static char  
+konwersjaStringNaInt(string liczba): static int 
+pobierzLiczbe(string tekst, int pozycjaZnaku): static string </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>300</y>
+      <w>660</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>AdresatMenedzer
+-
+-plikZAdresatami: PlikZAdresatami 
+-adresaci: vector &lt;Adresat&gt; 
+-idZalogowanegoUzytkownika: int 
++idOstatniegoAdresata: int 
+-
+-zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat): string 
+-wyswietlDaneAdresata(Adresat adresat): void 
++AdresatMenedzer(); 
++dodajAdresata(int idZalogowanegoUzytkownika): void 
++podajDaneNowegoAdresata(int idZalogowanegoUzytkownika): Adresat 
++wyswietlWszystkichAdresatow(vector &lt;Adresat&gt; &amp;adresaci): void 
++wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): vector &lt;Adresat&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>590</y>
+      <w>620</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>PlikZAdresatami
+-
++wczytajAdresatowZalogowanegoUzytkownikaZPliku(): vector&lt;Adresat&gt; 
+-
+-pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int  
+-pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat  
+-pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int   
+-czyAbyPlikJestPusty(fstream &amp;plikTekstowy): bool 
+-zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string 
++dopiszAdresataDoPliku(Adresat adresat): void  
++wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): vector&lt;Adresat&gt; </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>320</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Adresat
+-
+-id: int  
+-idUzytkownika: int 
+-imie: string  
+-nazwisko: string  
+-numerTelefonu: string  
+-email: string  
+-adres: string 
+-
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
