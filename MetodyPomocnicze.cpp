@@ -11,7 +11,7 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
 string MetodyPomocnicze::wczytajLinie()
 {
     string wejscie = "";
-    cin.sync(); 
+    cin.clear();  
     getline(cin, wejscie);
     return wejscie;
 }
@@ -35,19 +35,22 @@ char MetodyPomocnicze::wybierzOpcjeZMenuGlownego()
 
 char MetodyPomocnicze::wczytajZnak()
 {
+    cin.clear();
     string wejscie = "";
     char znak  = {0};
-
     while (true)
-    {
+    { 
+        cin.sync();
         getline(cin, wejscie);
-
         if (wejscie.length() == 1)
         {
             znak = wejscie[0];
+            cin.clear();
             break;
+        } else
+        {
+            cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
         }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
     }
     return znak;
 }

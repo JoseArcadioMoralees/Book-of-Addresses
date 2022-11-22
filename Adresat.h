@@ -9,7 +9,7 @@ class Adresat
     int id = 0, idUzytkownika = 0;
     string imie = "", nazwisko = "", numerTelefonu = "", email = "", adres = "";
 
-    public:
+public:
     int getId();
     int getIdUzytkownika();
     string getImie(); 

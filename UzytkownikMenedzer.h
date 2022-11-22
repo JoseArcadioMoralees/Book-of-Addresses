@@ -15,16 +15,17 @@ class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikZUzytkownikami; 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikZUzytkownikami; 
 
-    public:
+public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) 
     {
         this->idZalogowanegoUzytkownika = 0;
     };
+
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow(); 
     void wczytajUzytkownikowZPliku(); 
