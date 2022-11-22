@@ -21,6 +21,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
     do
     {
         cout << "Podaj login: ";
+        cin.sync(); 
         cin >> login;
         uzytkownik.ustawLogin(login);
     } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
@@ -43,7 +44,7 @@ int UzytkownikMenedzer::pobierzIdNowegoUzytkownika()
 
 bool UzytkownikMenedzer::czyIstniejeLogin(string login)
 {
-    for (int i = 0; i < uzytkownicy.size(); i++)
+    for (unsigned int i = 0; i < uzytkownicy.size(); i++)
     {
         if (uzytkownicy[i].pobierzLogin() == login)
         {
@@ -57,7 +58,7 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login)
 
 void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 {
-    for (int i = 0; i < uzytkownicy.size(); i++)
+    for (unsigned int i = 0; i < uzytkownicy.size(); i++)
     {
         cout << uzytkownicy[i].pobierzID() << endl; 
         cout << uzytkownicy[i].pobierzLogin() << endl; 

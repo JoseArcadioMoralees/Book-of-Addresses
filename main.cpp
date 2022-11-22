@@ -1,12 +1,12 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
-
+#include "PlikZAdresatami.h"
 
 using namespace std;
 
-int main ()
+int main () 
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt"); 
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 
     while (true)
     {
@@ -38,6 +38,12 @@ int main ()
 
             switch (wybor)
             {
+            case '1':
+                ksiazkaAdresowa.dodajAdresata(); 
+                break;
+            case '4':
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow(); 
+                break;
             case '7':
                 ksiazkaAdresowa.zmianaHasla();
                 break;
@@ -47,6 +53,5 @@ int main ()
             }
         }
     }
-
     return 0; 
 }

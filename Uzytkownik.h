@@ -10,7 +10,7 @@ class Uzytkownik
     string login;
     string haslo;
 
-    public: 
+public: 
     void ustawID(int noweID);
     void ustawLogin(string nowyLogin);
     void ustawHAslo(string noweHaslo); 
