@@ -13,7 +13,9 @@ class KsiazkaAdresowa
     int idZalogowanegoUzytkownika = getIdZalogowanegoUzytkownika(); 
     
 public:  
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) {uzytkownikMenedzer.wczytajUzytkownikowZPliku();}; 
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) 
+        {uzytkownikMenedzer.wczytajUzytkownikowZPliku();}; 
+    
     void rejestracjaUzytkownika(); 
     void wypiszWszystkichUzytkownikow(); 
     void logowanieUzytkownika();

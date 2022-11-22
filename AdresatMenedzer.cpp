@@ -2,7 +2,6 @@
 
 AdresatMenedzer::AdresatMenedzer()
 {
-    int idOstatniegoAdresata = 0; 
 }
 
 void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)

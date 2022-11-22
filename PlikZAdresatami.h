@@ -12,6 +12,7 @@ using namespace std;
 class PlikZAdresatami
 {
     int idOstatniegoAdresata;
+    string nazwaPlikuZAdresatami; 
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami); 
