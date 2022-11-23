@@ -48,7 +48,7 @@ int main ()
                 ksiazkaAdresowa.zmianaHasla();
                 break;
             case '8':
-                ksiazkaAdresowa.setIdZalogowanegoUzytkownika(0);
+                ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             }
         }
