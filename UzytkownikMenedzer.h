@@ -24,11 +24,11 @@ public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) 
     {
         this->idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
     };
 
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow(); 
-    void wczytajUzytkownikowZPliku(); 
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void zapiszWszystkichUzytkownikowDoPliku(); 
