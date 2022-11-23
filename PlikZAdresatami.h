@@ -21,7 +21,10 @@ class PlikZAdresatami
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     
 public: 
-    PlikZAdresatami(); 
+    PlikZAdresatami(){
+        idOstatniegoAdresata = 0; 
+        nazwaPlikuZAdresatami = "Adresaci.txt";
+    } 
 
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void dopiszAdresataDoPliku(Adresat adresat);
