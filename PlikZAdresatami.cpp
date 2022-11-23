@@ -1,10 +1,5 @@
 #include "PlikZAdresatami.h"
 
-PlikZAdresatami::PlikZAdresatami()
-{
-    idOstatniegoAdresata = 0; 
-    string nazwaPlikuZAdresatami = "Adresaci.txt";
-}
 
 vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
