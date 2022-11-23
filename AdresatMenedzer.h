@@ -16,12 +16,11 @@ class AdresatMenedzer
     PlikZAdresatami plikZAdresatami; 
     vector <Adresat> adresaci;
     int idZalogowanegoUzytkownika; 
-    int idOstatniegoAdresata;
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);  
     void wyswietlDaneAdresata(Adresat adresat); 
 
 public: 
-    AdresatMenedzer(); 
+    AdresatMenedzer(){}; 
     
     void dodajAdresata(int idZalogowanegoUzytkownika); 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);  
