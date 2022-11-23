@@ -21,7 +21,7 @@ class AdresatMenedzer
     void wyswietlDaneAdresata(Adresat adresat); 
 
 public: 
-    AdresatMenedzer(); 
+    AdresatMenedzer(){}; 
     
     void dodajAdresata(int idZalogowanegoUzytkownika); 
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);  

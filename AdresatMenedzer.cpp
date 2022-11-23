@@ -1,9 +1,5 @@
 #include "AdresatMenedzer.h"
 
-AdresatMenedzer::AdresatMenedzer()
-{
-}
-
 void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
