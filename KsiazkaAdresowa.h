@@ -11,9 +11,11 @@ class KsiazkaAdresowa
     UzytkownikMenedzer uzytkownikMenedzer; 
     AdresatMenedzer *adresatMenedzer; 
     int idZalogowanegoUzytkownika = getIdZalogowanegoUzytkownika(); 
+    const string NAZWA_PLIKU_Z_ADRESATAMI; 
     
 public:  
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami) 
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) 
+    : uzytkownikMenedzer(nazwaPlikuZUzytkownikami),  NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
             adresatMenedzer = NULL;
     }

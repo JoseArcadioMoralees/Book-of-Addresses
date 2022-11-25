@@ -12,7 +12,7 @@ using namespace std;
 class PlikZAdresatami
 {
     int idOstatniegoAdresata;
-    string nazwaPlikuZAdresatami; 
+    const string NAZWA_PLIKU_Z_ADRESATAMI; 
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami); 
@@ -21,9 +21,9 @@ class PlikZAdresatami
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     
 public: 
-    PlikZAdresatami(){
-        idOstatniegoAdresata = 0; 
-        nazwaPlikuZAdresatami = "Adresaci.txt";
+    PlikZAdresatami(string nazwaPlikuZAdresatami): NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+    {
+        idOstatniegoAdresata = 0;  
     } 
 
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
