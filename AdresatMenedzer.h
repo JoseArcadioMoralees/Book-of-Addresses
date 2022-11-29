@@ -32,6 +32,7 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void usunAdresata(); 
     void edytujAdresata(); 
+    void wyszukajAdresatowPoImieniu(); 
 };
 
 #endif
