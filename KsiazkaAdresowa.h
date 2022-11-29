@@ -34,6 +34,10 @@ public:
     void dodajAdresata(); 
     void wyswietlWszystkichAdresatow();
     void wylogowanieUzytkownika(); 
+    void usunAdresata();
+    void edytujAdresata(); 
+    void wyszukajAdresatowPoImieniu(); 
+    void wyszukajAdresatowPoNazwisku(); 
 }; 
 
 #endif
