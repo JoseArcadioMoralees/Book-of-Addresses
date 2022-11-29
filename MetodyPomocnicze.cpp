@@ -141,3 +141,12 @@ void MetodyPomocnicze::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow)
     else
         cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
 }
+
+bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
+{
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}

@@ -2,6 +2,7 @@
 #define METODYPOMOCNICZE_H
 #include<iostream>
 #include<sstream>
+#include<fstream>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
     static int wczytajLiczbeCalkowita(); 
     static char wybierzOpcjeZMenuEdycja();
     static void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow); 
+    static bool czyPlikJestPusty(fstream &plikTekstowy); 
 };
 
 

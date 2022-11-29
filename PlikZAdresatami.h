@@ -17,7 +17,6 @@ class PlikZAdresatami
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami); 
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
-    bool czyAbyPlikJestPusty(fstream &plikTekstowy);
     void usunPlik(string nazwaPlikuZRozszerzeniem); 
     void zmienNazwePliku(string staraNazwa, string nowaNazwa); 
     
