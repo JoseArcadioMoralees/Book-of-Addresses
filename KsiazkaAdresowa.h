@@ -35,6 +35,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void wylogowanieUzytkownika(); 
     void usunAdresata();
+    void edytujAdresata(); 
 }; 
 
 #endif

@@ -16,6 +16,7 @@ public:
     static int konwersjaStringNaInt(string liczba); 
     static string pobierzLiczbe(string tekst, int pozycjaZnaku); 
     static int wczytajLiczbeCalkowita(); 
+    static char wybierzOpcjeZMenuEdycja();
 };
 
 

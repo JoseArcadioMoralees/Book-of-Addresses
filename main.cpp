@@ -47,6 +47,9 @@ int main ()
             case '5':
                 ksiazkaAdresowa.usunAdresata(); 
                 break;
+            case '6':
+                ksiazkaAdresowa.edytujAdresata(); 
+                break;
             case '7':
                 ksiazkaAdresowa.zmianaHasla();
                 break;
