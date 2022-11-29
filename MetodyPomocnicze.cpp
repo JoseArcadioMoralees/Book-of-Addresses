@@ -97,3 +97,56 @@ string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku)
     }
     return liczba;
 }
+
+int MetodyPomocnicze::wczytajLiczbeCalkowita()
+{
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true)
+    {
+        getline(cin, wejscie);
+
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return liczba;
+}
+
+char MetodyPomocnicze::wybierzOpcjeZMenuEdycja()
+{
+    char wybor;
+
+    cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Ktore dane zaktualizowac: " << endl;
+    cout << "1 - Imie" << endl;
+    cout << "2 - Nazwisko" << endl;
+    cout << "3 - Numer telefonu" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Adres" << endl;
+    cout << "6 - Powrot " << endl;
+    cout << endl << "Twoj wybor: ";
+    wybor = wczytajZnak();
+
+    return wybor;
+}
+
+void MetodyPomocnicze::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow)
+{
+    if (iloscAdresatow == 0)
+        cout << endl << "W ksiazce adresowej nie ma adresatow z tymi danymi." << endl;
+    else
+        cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
+}
+
+bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
+{
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}

@@ -17,6 +17,8 @@ class AdresatMenedzer
     PlikZAdresatami plikZAdresatami;
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);  
     void wyswietlDaneAdresata(Adresat adresat); 
+    int podajIdWybranegoAdresata(); 
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata); 
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
 
 public: 
@@ -28,6 +30,10 @@ public:
     Adresat podajDaneNowegoAdresata();  
     void wyswietlWszystkichAdresatow(); 
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void usunAdresata(); 
+    void edytujAdresata(); 
+    void wyszukajAdresatowPoImieniu(); 
+    void wyszukajAdresatowPoNazwisku(); 
 };
 
 #endif

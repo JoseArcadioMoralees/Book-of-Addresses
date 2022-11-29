@@ -41,8 +41,20 @@ int main ()
             case '1':
                 ksiazkaAdresowa.dodajAdresata(); 
                 break;
+            case '2':
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu(); 
+                break;
+            case '3':
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku(); 
+                break;
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow(); 
+                break;
+            case '5':
+                ksiazkaAdresowa.usunAdresata(); 
+                break;
+            case '6':
+                ksiazkaAdresowa.edytujAdresata(); 
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHasla();

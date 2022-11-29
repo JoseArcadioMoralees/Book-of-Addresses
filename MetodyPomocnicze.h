@@ -2,6 +2,7 @@
 #define METODYPOMOCNICZE_H
 #include<iostream>
 #include<sstream>
+#include<fstream>
 
 using namespace std;
 
@@ -15,6 +16,10 @@ public:
     static char wybierzOpcjeZMenuUzytkownika(); 
     static int konwersjaStringNaInt(string liczba); 
     static string pobierzLiczbe(string tekst, int pozycjaZnaku); 
+    static int wczytajLiczbeCalkowita(); 
+    static char wybierzOpcjeZMenuEdycja();
+    static void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow); 
+    static bool czyPlikJestPusty(fstream &plikTekstowy); 
 };
 
 
