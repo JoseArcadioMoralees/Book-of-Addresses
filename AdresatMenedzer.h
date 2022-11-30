@@ -24,7 +24,9 @@ class AdresatMenedzer
 public: 
     AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) 
     : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) 
-    {}     
+    {
+       adresaci = wczytajAdresatowZalogowanegoUzytkownikaZPliku(); 
+    }     
     
     void dodajAdresata(); 
     Adresat podajDaneNowegoAdresata();  
