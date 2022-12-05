@@ -10,28 +10,28 @@
       <w>432</w>
       <h>280</h>
     </coordinates>
-    <panel_attributes>KsiążkaAdresowa
+    <panel_attributes>AddressBook
 --
--uzytkownikMenedzer: UzytkownikMenedzer
--*adresatMenedzer: AdresatMenedzer
--idZalogowanegoUzytkownika = getIdZalogowanegoUzytkownika(): int
+-userManager: UserManager
+-*recipientManager: Recipient Manager
+-idOfTheLoggedInUser = getIdOfTheLoggedInUser(): int
 --
-+KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) 
-    : uzytkownikMenedzer(nazwaPlikuZUzytkownikami),  NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){adresatMenedzer = NULL;}
-+~KsiazkaAdresowa() {delete adresatMenedzer; adresatMenedzer = NULL; }
-+rejestracjaUzytkownika(): void  
-+wypiszWszystkichUzytkownikow(): void
-+logowanieUzytkownika(): void
-+zmianaHasla(): void
-+getIdZalogowanegoUzytkownika(): int
-+setIdZalogowanegoUzytkownika(): void
-+dodajAdresata(): void
-+wyswietlWszystkichAdresatow(): void
-+wylogowanieUzytkownika(): void
-+usunAdresata(): void
-+edytujAdresata(): void
-+wyszukajAdresatowPoImieniu(): void
-+wyszukajAdresatowPoNazwisku(): void</panel_attributes>
++AddressBook(string nameOftheFileWithUsers, string recipientFileName) 
+    : userManager(nameOftheFileWithUsers),  FILE_NAME_WITH_RECIPIENTS(recipientFileName){userManager = NULL;}
++~AddressBook() {delete userManager; userManager = NULL; }
++userRegistration(): void  
++listAllUsers(): void
++userLogin(): void
++passwordChange(): void
++getIdOfTheLoggedInUser(): int
++setIdOfTheLoggedInUser(): void
++addRecipient(): void
++viewAllRecipients(): void
++UserLogout(): void
++removeRecipient(): void
++editRecipient(): void
++searchRecipientByName(): void
++searchRecipientBySurname(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -42,23 +42,23 @@
       <w>296</w>
       <h>216</h>
     </coordinates>
-    <panel_attributes>UzytkownikMenedzer
+    <panel_attributes>UserManager
 --
--idZalogowanegoUzytkownika: int
--uzytkownicy: vector &lt;Uzytkownik&gt; 
--plikZUzytkownikami: PlikZUzytkownikami 
+-idOfTheLoggedInUser: int
+-users: vector &lt;User&gt; 
+-fileUsers: FileUsers 
 --
--podajDaneNowegoUzytkownika(): Uzytkownik
--pobierzIdNowegoUzytkownika(): int
--czyIstniejeLogin(string login): bool
-+UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {idZalogowanegoUzytkownika = 0; uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();}
-+rejestracjaUzytkownika(): void
-+wypiszWszystkichUzytkownikow(): void
-+logowanieUzytkownika(): void
-+zmianaHaslaZalogowanegoUzytkownika(): void
-+zapiszWszystkichUzytkownikowDoPliku(): void
-+getIdZalogowanegoUzytkownika(): int
-+setIdZalogowanegoUzytkownika(int): void</panel_attributes>
+-enterNewUserData(): User
+-downloadFromNewUser(): int
+-isThereaLogin(string login): bool
++UserManager(string nameOfTheFileWithUsers) : fileUsers(nameOfTheFileWithUsers) {idOfTheLoggedInUser = 0; users = fileUsers.loadUsersFromFile();}
++userRegistration(): void
++listAllUsers(): void
++userLogin(): void
++changeOfTheLoggedUsersPassword(): void
++saveAllUsersToFile(): void
++getIdOfTheLoggedInUser(): int
++setIdOfTheLoggedInUser(int): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -69,11 +69,11 @@
       <w>120</w>
       <h>96</h>
     </coordinates>
-    <panel_attributes>Uzytkownik
+    <panel_attributes>User
 -
 -id: int 
 -login: string 
--haslo: string </panel_attributes>
+-password: string </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -84,16 +84,16 @@
       <w>672</w>
       <h>136</h>
     </coordinates>
-    <panel_attributes>PlikZUzytkownikami
+    <panel_attributes>FileUsers
 -
--NAZWA_PLIKU_Z_UZYTKOWNIKAMI: const string 
+-FILENAME_WITH_USERS: const string 
 -
--pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami): Uzytkownik
-+PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami){}
-+dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik): void
-+wczytajUzytkownikowZPliku(): vector &lt;Uzytkownik&gt;
-+pobierzNazwaPlikuZUzytkownikami(): string
-+zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik): static string
+-download_User_Data(string dataOfOneUserSeparatedByVerticalBars): User
++FileUsers(string nameOfTheFileWithUsers) : FILENAME_WITH_USERS(nameOfTheFileWithUsers){}
++addUserToFile(User user): void
++loadUsersFromFile(): vector &lt;User&gt;
++getFileNameWithUsers(): string
++replaceUserDataIntoLineWithDataSeparatedWithVerticalBars(Uzytkownik uzytkownik): static string
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -105,20 +105,20 @@
       <w>376</w>
       <h>176</h>
     </coordinates>
-    <panel_attributes>MetodyPomocnicze
+    <panel_attributes>AuxiliaryMethods
 -
 -
-+konwerjsaIntNaString(int liczba): static string
-+wczytajLinie(): static string
-+wybierzOpcjeZMenuGlownego(): static char
-+wczytajZnak(): static char
-+wybierzOpcjeZMenuUzytkownika(): static char
-+konwersjaStringNaInt(string liczba): static int
-+pobierzLiczbe(string tekst, int pozycjaZnaku): static string
-+wczytajLiczbeCalkowita(): static int
-+wybierzOpcjeZMenuEdycja(): static char
-+wyswietlIloscWyszukanychAdresatow(int iloscAdresatow): static void
-+czyPlikJestPusty(fstream &amp;plikTekstowy): static bool</panel_attributes>
++convertsIntToString(int number): static string
++loadLine(): static string
++selectOptionFromMainMenu(): static char
++loadCharacter(): static char
++selectUserMenuOptions(): static char
++convertStringToInt(string number): static int
++downloadNumber(string text, int markPosition): static string
++loadInteger(): static int
++selectOptionsFromTheEditMenu(): static char
++displayNumberOfRecipientsSearched(int numberOfRecipients): static void
++whetherTheFileIsEmpty(fstream &amp;textfile): static bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -129,27 +129,27 @@
       <w>584</w>
       <h>272</h>
     </coordinates>
-    <panel_attributes>AdresatMenedzer
+    <panel_attributes>RecipientManager
 -
--plikZAdresatami: PlikZAdresatami 
--adresaci: vector &lt;Adresat&gt; 
--ID_ZALOGOWANEGO_UZYTKOWNIKA: const int 
+-recipientFile: RecipientFile 
+-recipients: vector &lt;Recipients&gt; 
+-ID_OF_THE_LOGGED_USER: const int 
 -
--zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst): string
--wyswietlDaneAdresata(Adresat adresat): void
--podajIdWybranegoAdresata(): int
--zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata): void
-+AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) 
-    : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) 
-    {adresaci = wczytajAdresatowZalogowanegoUzytkownikaZPliku(); } 
-+dodajAdresata(): void
-+podajDaneNowegoAdresata(): Adresat
-+wyswietlWszystkichAdresatow(): void
-+wczytajAdresatowZalogowanegoUzytkownikaZPliku(): vector &lt;Adresat&gt;
-+usunAdresata(): void
-+edytujAdresata(): void
-+wyszukajAdresatowPoImieniu(): void
-+wyszukajAdresatowPoNazwisku(): void</panel_attributes>
+-replaceFirstLetterToUppercaseAOthersToLowercase(string tekst): string
+-viewRecipientDetails(Recipient recipient): void
+-enterTheIdOfTheSelectedRecipient(): int
+-updatetheDetailsoftheSelectedRecipient(Recipient recipient, int IDoftheEditedRecipient): void
++RecipientManager(string recipientFilename, int idoftheLoggedUser) 
+    : recipientFile(recipientFilename), ID_OF_THE_LOGGED_USER(idoftheLoggedUser) 
+    {recipients = loadLoggedUsersRecipientsFromFile(); } 
++addRecipient(): void
++entertheDataoftheNewRecipient(): Recipient
++viewAllRecipients(): void
++loadLoggedUsersRecipientsFromFile(): vector &lt;Recipients&gt;
++deleteRecipient(): void
++editRecipient(): void
++searchRecipientByName(): void
++searchRecipientBySurname(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -160,25 +160,25 @@
       <w>664</w>
       <h>256</h>
     </coordinates>
-    <panel_attributes>PlikZAdresatami
+    <panel_attributes>RecipientFile
 -
--idOstatniegoAdresata: int
--NAZWA_PLIKU_Z_ADRESATAMI: const string
+-lastRecipientId: int
+-FILE_NAME_WITH_RECIPIENTS: const string
 -
--pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int
--pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
--pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int
--usunPlik(string nazwaPlikuZRozszerzeniem): void
--zmienNazwePliku(string staraNazwa, string nowaNazwa): void
-+PlikZAdresatami(string nazwaPlikuZAdresatami): NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
-    {idOstatniegoAdresata = 0; } 
-+wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): vector&lt;Adresat&gt;
-+dopiszAdresataDoPliku(Adresat adresat): void
-+getIdOstatniegoAdresata(): int
-+zwrocNumerLiniiSzukanegoAdresata(int idAdresata): int
-+usunWybranaLinieWPliku(int numerUsuwanejLinii): void
-+zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat): string
-+edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami): void
+-retrieveUserIdFromDataSeparatedByVerticalBars(string dataForOneRecipientSeparatedByVerticalBars): int
+-downloadRecipientData(string DataForOneRecipientSeparatedByVerticalBars): Recipient
+-retrieveUserIdFromDataseparatedByVerticalBars(string DataForOneRecipientSeparatedByVerticalBars): int
+-DeleteFile(string fileNameWithExtension): void
+-changeFileName(string oldName, string newName): void
++RecipientFile(string fileNameWithRecipients): FILE_NAME_WITH_RECIPIENTS(fileNameWithRecipients)
+    {lastRecipientId = 0; } 
++loadLoggedUsersRecipientsFromFile(int lastRecipientId): vector&lt;Recipient&gt;
++addRecipientToFile(Recipient recipient): void
++get idOfTheLastRecipient(): int
++returnRecipientsLineNumber(int recipientId): int
++deleteSelectedLineInFile(int deletedLineNumber): void
++replaceRecipientDataIntoLineWithDataSeparatedByVerticalBars(Recipient recipient): string
++editSelectedLineInFile(int numberofEditedLine, string lineWithAddresseeDetailsSeparatedByVerticalBars): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -190,15 +190,15 @@
       <w>144</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>Adresat
+    <panel_attributes>Recipient
 -
 -id: int  
--idUzytkownika: int 
--imie: string  
--nazwisko: string  
--numerTelefonu: string  
+-userId: int 
+-name: string  
+-surname: string  
+-phonenumber: string  
 -email: string  
--adres: string 
+-address: string 
 
 </panel_attributes>
     <additional_attributes/>
