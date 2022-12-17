@@ -6,7 +6,7 @@
 #include <algorithm>
 #include "Adresat.h"
 #include "AuxiliaryMethods.h"
-#include "PlikZUzytkownikami.h"
+#include "FileWithUsers.h"
 #include "PlikZAdresatami.h"
 
 using namespace std; 

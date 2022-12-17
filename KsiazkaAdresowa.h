@@ -2,13 +2,13 @@
 #define KSIAZKAADRESOWA_H
 #include <vector>
 
-#include "UzytkownikMenedzer.h"
+#include "UsersManager.h"
 #include "AdresatMenedzer.h"
 using namespace std;
 
 class KsiazkaAdresowa
 {
-    UzytkownikMenedzer uzytkownikMenedzer; 
+    UsersManager uzytkownikMenedzer; 
     AdresatMenedzer *adresatMenedzer; 
     int idZalogowanegoUzytkownika = getIdZalogowanegoUzytkownika(); 
     const string NAZWA_PLIKU_Z_ADRESATAMI; 

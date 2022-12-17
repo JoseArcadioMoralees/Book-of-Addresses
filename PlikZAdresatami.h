@@ -23,7 +23,7 @@ class PlikZAdresatami
 public: 
     PlikZAdresatami(string nazwaPlikuZAdresatami): NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
-        idOstatniegoAdresata = 0; 
+        idOstatniegoAdresata = 1; 
     } 
 
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);

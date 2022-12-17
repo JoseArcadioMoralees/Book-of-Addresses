@@ -3,33 +3,33 @@
 
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
-    uzytkownikMenedzer.rejestracjaUzytkownika(); 
+    uzytkownikMenedzer.registerAnUser(); 
 }
 
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
-    uzytkownikMenedzer.wypiszWszystkichUzytkownikow(); 
+    uzytkownikMenedzer.showAllUsers(); 
 }
 
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    uzytkownikMenedzer.logowanieUzytkownika();
-    adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.getIdZalogowanegoUzytkownika()); 
+    uzytkownikMenedzer.loggingAnUser();
+    adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.getIdOfLoggedUser()); 
 }
 
 void KsiazkaAdresowa::zmianaHasla()
 {
-    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(); 
+    uzytkownikMenedzer.changePasswordOfLoggedUser(); 
 }
 
 int KsiazkaAdresowa::getIdZalogowanegoUzytkownika()
 {
-    return uzytkownikMenedzer.getIdZalogowanegoUzytkownika();
+    return uzytkownikMenedzer.getIdOfLoggedUser();
 }
 
 void KsiazkaAdresowa::setIdZalogowanegoUzytkownika(int IDZALOGOWANEGOUZYTKOWNIKA)
 {
-    uzytkownikMenedzer.setIdZalogowanegoUzytkownika(IDZALOGOWANEGOUZYTKOWNIKA);
+    uzytkownikMenedzer.setIdOfLoggedUser(IDZALOGOWANEGOUZYTKOWNIKA);
 }
 
 void KsiazkaAdresowa::dodajAdresata()
