@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include "User.h"
-#include "PlikZUzytkownikami.h"
+#include "FileWithUsers.h"
 #include "AuxiliaryMethods.h"
 
 
@@ -15,7 +15,7 @@ class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
     vector <User> uzytkownicy;
-    PlikZUzytkownikami plikZUzytkownikami; 
+    FileWithUsers plikZUzytkownikami; 
     User podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
@@ -24,7 +24,7 @@ public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) 
     {
         idZalogowanegoUzytkownika = 0;
-        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+        uzytkownicy = plikZUzytkownikami.loadUsersFromFile();
     };
 
     void rejestracjaUzytkownika();

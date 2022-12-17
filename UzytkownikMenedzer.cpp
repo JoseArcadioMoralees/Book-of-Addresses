@@ -5,7 +5,7 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
     User uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
-    plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    plikZUzytkownikami.addUserToTheFile(uzytkownik);
 
     cout << endl
          << "Konto zalozono pomyslnie" << endl
@@ -125,7 +125,7 @@ void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     vector <User>::iterator itrKoniec = --uzytkownicy.end();
-    string nazwaPlikuZUzytkownikami = plikZUzytkownikami.pobierzNazwaPlikuZUzytkownikami();
+    string nazwaPlikuZUzytkownikami = plikZUzytkownikami.getNameOfFileWithUsers();
 
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
 
@@ -133,7 +133,7 @@ void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
     {
         for (vector <User>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
         {
-            liniaZDanymiUzytkownika = plikZUzytkownikami.zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(*itr);
+            liniaZDanymiUzytkownika = plikZUzytkownikami.replaceUserDataIntoLineWithDataSeparatedWithVerticalBars(*itr);
 
             if (itr == itrKoniec)
             {
