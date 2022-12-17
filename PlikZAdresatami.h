@@ -4,7 +4,7 @@
 #include<vector>
 #include<fstream>
 
-#include "Adresat.h"
+#include "Recipient.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std; 
@@ -15,7 +15,7 @@ class PlikZAdresatami
     const string NAZWA_PLIKU_Z_ADRESATAMI; 
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
-    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami); 
+    Recipient pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami); 
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami); 
     void usunPlik(string nazwaPlikuZRozszerzeniem); 
     void zmienNazwePliku(string staraNazwa, string nowaNazwa); 
@@ -26,12 +26,12 @@ public:
         idOstatniegoAdresata = 1; 
     } 
 
-    vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    void dopiszAdresataDoPliku(Adresat adresat);
+    vector<Recipient> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void dopiszAdresataDoPliku(Recipient adresat);
     int getIdOstatniegoAdresata(); 
     int zwrocNumerLiniiSzukanegoAdresata(int idAdresata); 
     void usunWybranaLinieWPliku(int numerUsuwanejLinii); 
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Recipient adresat);
     void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami); 
 };
 

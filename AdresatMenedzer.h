@@ -4,7 +4,7 @@
 #include<vector>
 #include<fstream>
 #include <algorithm>
-#include "Adresat.h"
+#include "Recipient.h"
 #include "AuxiliaryMethods.h"
 #include "FileWithUsers.h"
 #include "PlikZAdresatami.h"
@@ -13,12 +13,12 @@ using namespace std;
 
 class AdresatMenedzer
 { 
-    vector <Adresat> adresaci;  
+    vector <Recipient> adresaci;  
     PlikZAdresatami plikZAdresatami;
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);  
-    void wyswietlDaneAdresata(Adresat adresat); 
+    void wyswietlDaneAdresata(Recipient adresat); 
     int podajIdWybranegoAdresata(); 
-    void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata); 
+    void zaktualizujDaneWybranegoAdresata(Recipient adresat, int idEdytowanegoAdresata); 
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
 
 public: 
@@ -29,9 +29,9 @@ public:
     }     
     
     void dodajAdresata(); 
-    Adresat podajDaneNowegoAdresata();  
+    Recipient podajDaneNowegoAdresata();  
     void wyswietlWszystkichAdresatow(); 
-    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    vector <Recipient> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void usunAdresata(); 
     void edytujAdresata(); 
     void wyszukajAdresatowPoImieniu(); 

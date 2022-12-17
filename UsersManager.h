@@ -1,5 +1,5 @@
-#ifndef UZYTKOWNIKMENEDZER_H
-#define UZYTKOWNIKMENEDZER_H
+#ifndef USERSMANAGER_H
+#define USERSMANAGER_H
 #include <vector>
 #include <windows.h>
 #include <fstream>

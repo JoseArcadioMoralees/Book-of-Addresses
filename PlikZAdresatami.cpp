@@ -1,10 +1,10 @@
 #include "PlikZAdresatami.h"
 
 
-vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
+vector<Recipient> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
-    vector <Adresat> adresaci; 
-    Adresat adresat;
+    vector <Recipient> adresaci; 
+    Recipient adresat;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
@@ -46,9 +46,9 @@ int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(st
     return idUzytkownika;
 }
 
-Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami)
+Recipient PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami)
 {
-    Adresat adresat;
+    Recipient adresat;
     string pojedynczaDanaAdresata = "";
     int numerPojedynczejDanejAdresata = 1;
 
@@ -66,22 +66,22 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
                 adresat.setId(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 2:
-                adresat.setIdUzytkownika(atoi(pojedynczaDanaAdresata.c_str()));
+                adresat.setIdOfUser(atoi(pojedynczaDanaAdresata.c_str()));
                 break;
             case 3:
-                adresat.setImie(pojedynczaDanaAdresata);
+                adresat.setName(pojedynczaDanaAdresata);
                 break;
             case 4:
-                adresat.setNazwisko(pojedynczaDanaAdresata);
+                adresat.setSurname(pojedynczaDanaAdresata);
                 break;
             case 5:
-                adresat.setNumerTelefonu(pojedynczaDanaAdresata);
+                adresat.setPhoneNumber(pojedynczaDanaAdresata);
                 break;
             case 6:
                 adresat.setEmail(pojedynczaDanaAdresata);
                 break;
             case 7:
-                adresat.setAdres(pojedynczaDanaAdresata);
+                adresat.setAddress(pojedynczaDanaAdresata);
                 break;
             }
             pojedynczaDanaAdresata = "";
@@ -97,7 +97,7 @@ int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(strin
     return idAdresata;
 }
 
-void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
+void PlikZAdresatami::dopiszAdresataDoPliku(Recipient adresat)
 { 
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
@@ -125,17 +125,17 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 }
 
 
-string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
+string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Recipient adresat)
 {
     string liniaZDanymiAdresata = "";
 
     liniaZDanymiAdresata += AuxiliaryMethods::convertIntToString(adresat.getId()) + '|';
-    liniaZDanymiAdresata += AuxiliaryMethods::convertIntToString(adresat.getIdUzytkownika()) + '|';
-    liniaZDanymiAdresata += adresat.getImie() + '|';
-    liniaZDanymiAdresata += adresat.getNazwisko() + '|';
-    liniaZDanymiAdresata += adresat.getNumerTelefonu() + '|';
+    liniaZDanymiAdresata += AuxiliaryMethods::convertIntToString(adresat.getIdOfUser()) + '|';
+    liniaZDanymiAdresata += adresat.getName() + '|';
+    liniaZDanymiAdresata += adresat.getSurname() + '|';
+    liniaZDanymiAdresata += adresat.getPhoneNumber() + '|';
     liniaZDanymiAdresata += adresat.getEmail() + '|';
-    liniaZDanymiAdresata += adresat.getAdres() + '|';
+    liniaZDanymiAdresata += adresat.getAddress() + '|';
 
     return liniaZDanymiAdresata;
 }
