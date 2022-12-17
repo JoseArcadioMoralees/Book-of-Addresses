@@ -5,22 +5,22 @@
 #include<fstream>
 #include<cstdlib>
 
-#include "Uzytkownik.h"
-#include "MetodyPomocnicze.h"
+#include "User.h"
+#include "AuxiliaryMethods.h"
 using namespace std;
 
 class PlikZUzytkownikami
 {
     const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI; 
-    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+    User pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 public: 
     PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami){}; 
     
-    void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
-    vector <Uzytkownik> wczytajUzytkownikowZPliku(); 
+    void dopiszUzytkownikaDoPliku(User uzytkownik);
+    vector <User> wczytajUzytkownikowZPliku(); 
     string pobierzNazwaPlikuZUzytkownikami(); 
-    static string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
+    static string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(User uzytkownik);
     
     
 };

@@ -4,9 +4,9 @@
 #include <windows.h>
 #include <fstream>
 #include <sstream>
-#include "Uzytkownik.h"
+#include "User.h"
 #include "PlikZUzytkownikami.h"
-#include "MetodyPomocnicze.h"
+#include "AuxiliaryMethods.h"
 
 
 using namespace std;
@@ -14,9 +14,9 @@ using namespace std;
 class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
-    vector <Uzytkownik> uzytkownicy;
+    vector <User> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami; 
-    Uzytkownik podajDaneNowegoUzytkownika();
+    User podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
 

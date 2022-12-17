@@ -13,7 +13,7 @@ int main ()
         char wybor; 
         if (ksiazkaAdresowa.getIdZalogowanegoUzytkownika() == 0)
         {
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
+            wybor = AuxiliaryMethods::choseOptionFromMainMenu();
 
             switch (wybor)
             {
@@ -34,7 +34,7 @@ int main ()
         }
         else
         {
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+            wybor = AuxiliaryMethods::choseOptionFromUserMenu();
 
             switch (wybor)
             {

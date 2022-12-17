@@ -5,7 +5,7 @@
 #include<fstream>
 #include <algorithm>
 #include "Adresat.h"
-#include "MetodyPomocnicze.h"
+#include "AuxiliaryMethods.h"
 #include "PlikZUzytkownikami.h"
 #include "PlikZAdresatami.h"
 

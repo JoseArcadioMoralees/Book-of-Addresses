@@ -1,6 +1,6 @@
 #include "PlikZUzytkownikami.h"
 
-void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
+void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(User uzytkownik)
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
@@ -10,7 +10,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy) == true)
+        if (AuxiliaryMethods::ifFileIsEmpty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiUzytkownika;
         }
@@ -25,22 +25,22 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
 }
 
 
-string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(User uzytkownik)
 {
     string liniaZDanymiUzytkownika = "";
 
-    liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownik.pobierzID())+ '|';
-    liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
-    liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
+    liniaZDanymiUzytkownika += AuxiliaryMethods::convertIntToString(uzytkownik.getId())+ '|';
+    liniaZDanymiUzytkownika += uzytkownik.getLogin() + '|';
+    liniaZDanymiUzytkownika += uzytkownik.getPassword() + '|';
 
     return liniaZDanymiUzytkownika;
 }
 
-vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
+vector <User> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
 {
     fstream plikTekstowy;
-    Uzytkownik uzytkownik;
-    vector <Uzytkownik> uzytkownicy;
+    User uzytkownik;
+    vector <User> uzytkownicy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
 
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::in);
@@ -57,9 +57,9 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
     return uzytkownicy; 
 }
 
-Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
+User PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
 {
-    Uzytkownik uzytkownik;
+    User uzytkownik;
     string pojedynczaDanaUzytkownika = "";
     int numerPojedynczejDanejUzytkownika = 1;
 
@@ -74,13 +74,13 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
             switch(numerPojedynczejDanejUzytkownika)
             {
             case 1:
-                uzytkownik.ustawID(atoi(pojedynczaDanaUzytkownika.c_str()));
+                uzytkownik.setId(atoi(pojedynczaDanaUzytkownika.c_str()));
                 break;
             case 2:
-                uzytkownik.ustawLogin(pojedynczaDanaUzytkownika);
+                uzytkownik.setLogin(pojedynczaDanaUzytkownika);
                 break;
             case 3:
-                uzytkownik.ustawHAslo(pojedynczaDanaUzytkownika);
+                uzytkownik.setPassword(pojedynczaDanaUzytkownika);
                 break;
             }
             pojedynczaDanaUzytkownika = "";

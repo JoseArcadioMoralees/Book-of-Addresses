@@ -5,7 +5,7 @@
 #include<fstream>
 
 #include "Adresat.h"
-#include "MetodyPomocnicze.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std; 
 
