@@ -9,7 +9,7 @@ void AdresatMenedzer::dodajAdresata()
     adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
+    plikZAdresatami.addRecipientToFile(adresat);
 
 }
 
@@ -17,7 +17,7 @@ Recipient AdresatMenedzer::podajDaneNowegoAdresata()
 {
     Recipient adresat;
 
-    adresat.setId(plikZAdresatami.getIdOstatniegoAdresata() + 1);
+    adresat.setId(plikZAdresatami.getIdOfLastRecipient() + 1);
     adresat.setIdOfUser(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
@@ -86,7 +86,7 @@ void AdresatMenedzer::wyswietlDaneAdresata(Recipient adresat)
 
 vector <Recipient> AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA); 
+    adresaci = plikZAdresatami.loadLoggedUserRecipientsFromFile(ID_ZALOGOWANEGO_UZYTKOWNIKA); 
     return adresaci;  
 }
 
@@ -111,8 +111,8 @@ void AdresatMenedzer::usunAdresata()
             znak = AuxiliaryMethods::loadCharacter();
             if (znak == 't')
             {
-                numerLiniiUsuwanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                numerLiniiUsuwanegoAdresata = plikZAdresatami.returnRecipientLineNumber(idUsuwanegoAdresata);
+                plikZAdresatami.deleteChosenLineInFile(numerLiniiUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
@@ -212,9 +212,9 @@ void AdresatMenedzer::zaktualizujDaneWybranegoAdresata(Recipient adresat, int id
     int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
 
-    numerLiniiEdytowanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idEdytowanegoAdresata);
-    liniaZDanymiAdresata = plikZAdresatami.zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
-    plikZAdresatami.edytujWybranaLinieWPliku(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
+    numerLiniiEdytowanegoAdresata = plikZAdresatami.returnRecipientLineNumber(idEdytowanegoAdresata);
+    liniaZDanymiAdresata = plikZAdresatami.replaceRecipientDataIntoLineWithDataSeparatedByVerticalBars(adresat);
+    plikZAdresatami.editChosenLineInFile(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
 
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
 }

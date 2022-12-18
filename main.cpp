@@ -1,6 +1,6 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
-#include "PlikZAdresatami.h"
+#include "RecipientFile.h"
 
 using namespace std;
 

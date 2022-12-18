@@ -7,14 +7,14 @@
 #include "Recipient.h"
 #include "AuxiliaryMethods.h"
 #include "FileWithUsers.h"
-#include "PlikZAdresatami.h"
+#include "RecipientFile.h"
 
 using namespace std; 
 
 class AdresatMenedzer
 { 
     vector <Recipient> adresaci;  
-    PlikZAdresatami plikZAdresatami;
+    RecipientFile plikZAdresatami;
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);  
     void wyswietlDaneAdresata(Recipient adresat); 
     int podajIdWybranegoAdresata(); 
