@@ -1,24 +1,24 @@
-#include "MetodyPomocnicze.h"
+#include "AuxiliaryMethods.h"
 
-string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
+string AuxiliaryMethods::convertIntToString(int number)
 {
     ostringstream ss;
-    ss << liczba;
+    ss << number;
     string str = ss.str();
     return str;
 }
 
-string MetodyPomocnicze::wczytajLinie()
+string AuxiliaryMethods::loadALine()
 {
-    string wejscie = "";
+    string entry = "";
     cin.clear();  
-    getline(cin, wejscie);
-    return wejscie;
+    getline(cin, entry);
+    return entry;
 }
 
-char MetodyPomocnicze::wybierzOpcjeZMenuGlownego()
+char AuxiliaryMethods::choseOptionFromMainMenu()
 {
-    char wybor;
+    char option;
 
     system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
@@ -28,23 +28,23 @@ char MetodyPomocnicze::wybierzOpcjeZMenuGlownego()
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wybor = wczytajZnak();
+    option = loadCharacter();
 
-    return wybor;
+    return option;
 }
 
-char MetodyPomocnicze::wczytajZnak()
+char AuxiliaryMethods::loadCharacter()
 {
     cin.clear();
-    string wejscie = "";
-    char znak  = {0};
+    string entry = "";
+    char character  = {0};
     while (true)
     { 
         cin.sync();
-        getline(cin, wejscie);
-        if (wejscie.length() == 1)
+        getline(cin, entry);
+        if (entry.length() == 1)
         {
-            znak = wejscie[0];
+            character = entry[0];
             cin.clear();
             break;
         } else
@@ -52,12 +52,12 @@ char MetodyPomocnicze::wczytajZnak()
             cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
         }
     }
-    return znak;
+    return character;
 }
 
-char MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika()
+char AuxiliaryMethods::choseOptionFromUserMenu()
 {
-    char wybor;
+    char option;
 
     system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
@@ -73,51 +73,51 @@ char MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika()
     cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wybor = MetodyPomocnicze::wczytajZnak();
+    option = AuxiliaryMethods::loadCharacter();
 
-    return wybor;
+    return option;
 }
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
+int AuxiliaryMethods::convertStringToInt(string number)
 {
-    int liczbaInt;
-    istringstream iss(liczba);
-    iss >> liczbaInt;
+    int numberInt;
+    istringstream iss(number);
+    iss >> numberInt;
 
-    return liczbaInt;
+    return numberInt;
 }
 
-string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku)
+string AuxiliaryMethods::loadNumber(string text, int positionOfCharacter)
 {
-    string liczba = "";
-    while(isdigit(tekst[pozycjaZnaku]) == true)
+    string number = "";
+    while(isdigit(text[positionOfCharacter]) == true)
     {
-        liczba += tekst[pozycjaZnaku];
-        pozycjaZnaku ++;
+        number += text[positionOfCharacter];
+        positionOfCharacter ++;
     }
-    return liczba;
+    return number;
 }
 
-int MetodyPomocnicze::wczytajLiczbeCalkowita()
+int AuxiliaryMethods::loadIntegerNumber()
 {
-    string wejscie = "";
-    int liczba = 0;
+    string entry = "";
+    int number = 0;
 
     while (true)
     {
-        getline(cin, wejscie);
+        getline(cin, entry);
 
-        stringstream myStream(wejscie);
-        if (myStream >> liczba)
+        stringstream myStream(entry);
+        if (myStream >> number)
             break;
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
-    return liczba;
+    return number;
 }
 
-char MetodyPomocnicze::wybierzOpcjeZMenuEdycja()
+char AuxiliaryMethods::choseOptionFromEditionMenu()
 {
-    char wybor;
+    char option;
 
     cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
     cout << "---------------------------" << endl;
@@ -129,23 +129,23 @@ char MetodyPomocnicze::wybierzOpcjeZMenuEdycja()
     cout << "5 - Adres" << endl;
     cout << "6 - Powrot " << endl;
     cout << endl << "Twoj wybor: ";
-    wybor = wczytajZnak();
+    option = loadCharacter();
 
-    return wybor;
+    return option;
 }
 
-void MetodyPomocnicze::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow)
+void AuxiliaryMethods::displayNumberOfSearchedRecipients(int numberOfRecipients)
 {
-    if (iloscAdresatow == 0)
+    if (numberOfRecipients == 0)
         cout << endl << "W ksiazce adresowej nie ma adresatow z tymi danymi." << endl;
     else
-        cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << iloscAdresatow << endl << endl;
+        cout << endl << "Ilosc adresatow w ksiazce adresowej wynosi: " << numberOfRecipients << endl << endl;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
+bool AuxiliaryMethods::ifFileIsEmpty(fstream &textFile)
 {
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
+    textFile.seekg(0, ios::end);
+    if (textFile.tellg() == 0)
         return true;
     else
         return false;

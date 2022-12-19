@@ -1,27 +1,27 @@
 #include <iostream>
-#include "KsiazkaAdresowa.h"
-#include "PlikZAdresatami.h"
+#include "AddressBook.h"
+#include "RecipientFile.h"
 
 using namespace std;
 
 int main () 
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
+    AddressBook addressBook("Users.txt", "Recipients.txt");
 
     while (true)
     {
-        char wybor; 
-        if (ksiazkaAdresowa.getIdZalogowanegoUzytkownika() == 0)
+        char option; 
+        if (addressBook.getIdOfLoggedUser() == 0)
         {
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
+            option = AuxiliaryMethods::choseOptionFromMainMenu();
 
-            switch (wybor)
+            switch (option)
             {
             case '1':
-                ksiazkaAdresowa.rejestracjaUzytkownika();
+                addressBook.registerAnUser();
                 break;
             case '2':
-                ksiazkaAdresowa.logowanieUzytkownika();
+                addressBook.loggingAnUser();
                 break;
             case '9':
                 exit(0);
@@ -34,33 +34,33 @@ int main ()
         }
         else
         {
-            wybor = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+            option = AuxiliaryMethods::choseOptionFromUserMenu();
 
-            switch (wybor)
+            switch (option)
             {
             case '1':
-                ksiazkaAdresowa.dodajAdresata(); 
+                addressBook.addRecipient(); 
                 break;
             case '2':
-                ksiazkaAdresowa.wyszukajAdresatowPoImieniu(); 
+                addressBook.searchRecipientByName(); 
                 break;
             case '3':
-                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku(); 
+                addressBook.searchRecipientBySurname(); 
                 break;
             case '4':
-                ksiazkaAdresowa.wyswietlWszystkichAdresatow(); 
+                addressBook.shawAllRecipients(); 
                 break;
             case '5':
-                ksiazkaAdresowa.usunAdresata(); 
+                addressBook.deleteRecipient(); 
                 break;
             case '6':
-                ksiazkaAdresowa.edytujAdresata(); 
+                addressBook.editRecipient(); 
                 break;
             case '7':
-                ksiazkaAdresowa.zmianaHasla();
+                addressBook.changePasswordOfLoggedUser();
                 break;
             case '8':
-                ksiazkaAdresowa.wylogowanieUzytkownika();
+                addressBook.LogOutAnUser();
                 break;
             }
         }
