@@ -12,7 +12,7 @@ using namespace std;
 class RecipientFile
 {
     int idOfLastRecipient;
-    const string NAME_OF_FILE_WITH_USERS; 
+    const string FILE_NAME_WITH_RECIPIENTS; 
 
     int getUserIdFromDataSeparetedByVerticalBars(string dataOfOneRecipientSeparetedByVerticalBars); 
     Recipient getDataOfRecipient(string dataOfRecipientSeparetedByVerticalBars); 
@@ -21,7 +21,7 @@ class RecipientFile
     void changeNameOfFile(string oldName, string newName); 
     
 public: 
-    RecipientFile(string nameOfFileWIthRecipients): NAME_OF_FILE_WITH_USERS(nameOfFileWIthRecipients)
+    RecipientFile(string nameOfFileWIthRecipients): FILE_NAME_WITH_RECIPIENTS(nameOfFileWIthRecipients)
     {
         idOfLastRecipient = 1; 
     } 
