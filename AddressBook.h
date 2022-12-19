@@ -1,5 +1,5 @@
-#ifndef KSIAZKAADRESOWA_H
-#define KSIAZKAADRESOWA_H
+#ifndef ADDRESSBOOK_H
+#define ADDRESSBOOK_H
 #include <vector>
 
 #include "UsersManager.h"

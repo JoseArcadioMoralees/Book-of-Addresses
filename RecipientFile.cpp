@@ -8,7 +8,7 @@ vector<Recipient> RecipientFile::loadLoggedUserRecipientsFromFile(int idOfLogged
     string DataforOneRecipientSeparatedbyVerticalBars = "";
     string LastRecipientDataInFile = "";
     fstream textFile;
-    textFile.open(NAME_OF_FILE_WITH_USERS.c_str(), ios::in);
+    textFile.open(FILE_NAME_WITH_RECIPIENTS.c_str(), ios::in);
 
     if (textFile.good() == true)
     {
@@ -101,7 +101,7 @@ void RecipientFile::addRecipientToFile(Recipient recipient)
 { 
     string lineWithRecipientData = "";
     fstream textFile;
-    textFile.open(NAME_OF_FILE_WITH_USERS.c_str(), ios::out | ios::app);
+    textFile.open(FILE_NAME_WITH_RECIPIENTS.c_str(), ios::out | ios::app);
 
     if (textFile.good() == true)
     {
@@ -151,7 +151,7 @@ int RecipientFile::returnRecipientLineNumber(int recipientId)
     int numberOfLineInTextFile = 1;
     string DataForOneRecipientSeparatedbyVerticalBars = "";
     fstream textFile;
-    textFile.open(NAME_OF_FILE_WITH_USERS.c_str(), ios::in);
+    textFile.open(FILE_NAME_WITH_RECIPIENTS.c_str(), ios::in);
 
     if (textFile.good() == true && recipientId != 0)
     {
@@ -182,7 +182,7 @@ void RecipientFile::deleteChosenLineInFile(int numberOfDeletedLine)
     int numberOfLoadedLine = 1;
     string temporaryFileNameWithRecipients = "Tymczasowa_nazwa"; 
 
-    readTextFile.open(NAME_OF_FILE_WITH_USERS.c_str(), ios::in);
+    readTextFile.open(FILE_NAME_WITH_RECIPIENTS.c_str(), ios::in);
     temporaryTextFile.open(temporaryFileNameWithRecipients.c_str(), ios::out | ios::app);
 
     if (readTextFile.good() == true && numberOfDeletedLine != 0)
@@ -203,8 +203,8 @@ void RecipientFile::deleteChosenLineInFile(int numberOfDeletedLine)
         readTextFile.close();
         temporaryTextFile.close();
 
-        deleteFile(NAME_OF_FILE_WITH_USERS);
-        changeNameOfFile(temporaryFileNameWithRecipients, NAME_OF_FILE_WITH_USERS);
+        deleteFile(FILE_NAME_WITH_RECIPIENTS);
+        changeNameOfFile(temporaryFileNameWithRecipients, FILE_NAME_WITH_RECIPIENTS);
     }
 }
 
@@ -229,7 +229,7 @@ void RecipientFile::editChosenLineInFile(int numberOFEditedLine, string lineWith
     int numberOfLoadedLine = 1;
     string temporaryTextFileName = "Tymczasowa_nazwa"; 
 
-    readTextFile.open(NAME_OF_FILE_WITH_USERS.c_str(), ios::in);
+    readTextFile.open(FILE_NAME_WITH_RECIPIENTS.c_str(), ios::in);
     temporaryTextFile.open(temporaryTextFileName.c_str(), ios::out | ios::app);
 
     if (readTextFile.good() == true)
@@ -255,7 +255,7 @@ void RecipientFile::editChosenLineInFile(int numberOFEditedLine, string lineWith
         readTextFile.close();
         temporaryTextFile.close();
 
-        deleteFile(NAME_OF_FILE_WITH_USERS);
-        changeNameOfFile(temporaryTextFileName, NAME_OF_FILE_WITH_USERS);
+        deleteFile(FILE_NAME_WITH_RECIPIENTS);
+        changeNameOfFile(temporaryTextFileName, FILE_NAME_WITH_RECIPIENTS);
     }
 }
